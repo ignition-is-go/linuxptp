@@ -432,7 +432,7 @@ int msg_post_recv(struct ptp_message *m, int cnt)
 	if (suffix_len < 0) {
 		return suffix_len;
 	}
-	if (pdulen + suffix_len != m->header.messageLength) {
+	if (pdulen + suffix_len < m->header.messageLength) {
 		return -EBADMSG;
 	}
 
